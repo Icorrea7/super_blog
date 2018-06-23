@@ -1,0 +1,13 @@
+<% if @post.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('.post').append(' <%= j render "row", post: @post %>');
+  $('.alert-success').html("El producto ha sido creado con éxito").show();
+  // $('.inicio').html('<div class="alert alert-success" role="alert"><p style="text-align:center">Post Creado</p></div>');
+  $('#myModal').modal('hide');
+  $("[data-dismiss=modal]").trigger({ type: "click" });
+  // window.location.reload(true);
+<% else %>
+  // show first error
+  // alert('<%= @post.errors.full_messages[0] %>');
+  $('#myModal .modal-header .alerta').html('<div class="alert alert-danger" role="alert"><p style="text-align:center"><%= @post.errors.full_messages[0] %></p></div>')
+<% end %>

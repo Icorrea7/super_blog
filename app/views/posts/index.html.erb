@@ -1,0 +1,14 @@
+<% flash.each do |key, message| %>
+    <div class="alert alert-<%= key %>" role="alert"><p style="text-align:center"><%= message %></p></div>
+<% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="post">
+          <% @posts.each do |p| %>
+            <%= render "row", post: p %>
+          <%end %>
+        </div>
+      </div>
+    </div>
+  </div>

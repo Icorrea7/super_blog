@@ -1,0 +1,26 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="alerta">
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title"><%= title %></h3>
+      </div>
+      <%= form_for @post, remote: true do |f| %>
+      <div class="modal-body">
+        <div class="form-group">
+          <%= f.text_field :title, placeholder: "Titulo", class:"form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :description, placeholder:"Descrpción", class:"form-control", rows:"5" %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit class: "btn btn-primary btn-block" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
