@@ -5,8 +5,12 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="post">
-          <% @posts.each do |p| %>
-            <%= render "row", post: p %>
+          <% if @posts.count > 0  %>
+            <% @posts.each do |p| %>
+              <%= render "row", post: p %>
+            <%end %>
+          <%else%>
+            <h2>Aun no hay ningun post :(</h2>
           <%end %>
         </div>
       </div>
