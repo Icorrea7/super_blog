@@ -5,7 +5,7 @@
   <div class="jumbotron">
       <h1><%=@post.title%></h1>
       <div class="container post">
-        <p><%= @post.description %></p>
+        <p><%= markdown  @post.description %></p>
         <hr>
       </div>
       <% if current_user %>
@@ -30,7 +30,7 @@
               <strong><%=com.user.try(:email)%>
               </div>
               <div class="panel-body">
-              <%= com.body %>
+              <%= markdown com.body %>
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@
      <div id = "comentarios">
        <%= form_for @comment, url: post_comments_path(@post)  do | f| %>
            <div>
-             <%= f.text_area :body, placeholder:"Agregar comentario", class:"coment" %>
+             <%= f.text_area :body, placeholder:"Agregar comentario", class:"coment markItUp" %>
            </div>
            <%= f.submit "Comentar", class: "btn btn-sm btn-default boton"%>
        <% end %>
@@ -50,3 +50,9 @@
     <% end %>
   </div>
 </div>
+<script type="text/javascript" >
+
+  $(document).ready(function() {
+  $(".markItUp").markItUp(mySettings);
+  });
+</script>

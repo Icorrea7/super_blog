@@ -8,7 +8,7 @@
             <hr>
       </div>
     </h3>
-    <p><%= truncate(post.description, :length => 250) %></p>
+    <p><%= markdown truncate(post.description, :length => 250) %></p>
   </div>
   <div class="panel-footer">
     <p>Por: <%=post.user.email%>
